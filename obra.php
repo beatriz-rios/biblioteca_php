@@ -5,9 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obra</title>
+    <link rel="stylesheet" href="./_css/style.css">
+    <link rel="stylesheet" href="./_css/nav.css">
 </head>
 
 <body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="menu.html" class="navbar-logo">Biblioteca</a>
+            <button class="navbar-toggle" id="navbarToggle">
+            </button>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li class="navbar-item">
+                    <a href="usuario.php" class="navbar-link ">Usuários</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="obra.php" class="navbar-link active ">Obras</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="emprestimo.php" class="navbar-link ">Empréstimos</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="devolucao.php" class="navbar-link ">Devoluções</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="vereficacao.php" class="navbar-link ">Relatórios</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <form method="post">
         <h1>Cadastre a obra literária</h1>
         <fieldset>
@@ -83,7 +109,7 @@
             die();
         }
 
-       
+
         $sql = "INSERT INTO obra (
         nome_obra, 
         autor_idautor, 
@@ -97,15 +123,15 @@
         '$categoria', 
         '$ano')";
 
-     if(mysqli_query($conn, $sql)){
-    echo"<br>Comando executado com sucesso";
-}else{
-    echo"Error: " . $sql . "<br>" . mysqli_error($conn);
-}
+        if (mysqli_query($conn, $sql)) {
+            echo "<br>Comando executado com sucesso";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
 
 
- mysqli_close($conn);
-  }
+        mysqli_close($conn);
+    }
     ?>
 
 </body>

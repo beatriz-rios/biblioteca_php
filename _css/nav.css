@@ -1,0 +1,143 @@
+/* ===== BARRA DE NAVEGAÇÃO (NAVBAR) ===== */
+.navbar {
+    background-color: var(--preto-secundario);
+    border-bottom: 3px solid transparent;
+    border-image: var(--gradiente-dourado);
+    border-image-slice: 1;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+.navbar-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--dourado);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+    transition: var(--transicao);
+}
+
+.navbar-logo:hover {
+    color: var(--dourado-claro);
+    transform: scale(1.05);
+}
+
+.navbar-logo-icon {
+    margin-right: 10px;
+    font-size: 2rem;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-item {
+    margin-left: 20px;
+}
+
+.navbar-link {
+    color: var(--cinza-claro);
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: var(--transicao);
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradiente-dourado);
+    transition: 0.5s;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.navbar-link:hover {
+    color: var(--dourado);
+    transform: translateY(-2px);
+}
+
+.navbar-link:hover::before {
+    left: 0;
+}
+
+.navbar-link.active {
+    background: var(--gradiente-dourado);
+    color: var(--preto-principal);
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.navbar-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--dourado);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Responsividade da Navbar */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-wrap: wrap;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+    }
+
+    .navbar-menu.active {
+        max-height: 500px;
+        margin-top: 15px;
+    }
+
+    .navbar-item {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-link {
+        padding: 15px;
+        border-radius: 0;
+        border-bottom: 1px solid var(--preto-terciario);
+    }
+
+    .navbar-link:hover {
+        background-color: var(--preto-terciario);
+    }
+}

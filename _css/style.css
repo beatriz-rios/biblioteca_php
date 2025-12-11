@@ -1,0 +1,375 @@
+/* estilo.css - Design Moderno e Sofisticado para Sistema de Biblioteca */
+
+/* ===== VARIÁVEIS E RESET ===== */
+:root {
+    --preto-principal: #0a0a0a;
+    --preto-secundario: #1a1a1a;
+    --preto-terciario: #2a2a2a;
+    --lilas: #c266f7;
+    --roxo-claro: #7e48bd;
+    --roxo-escuro: #5c0c92;
+    --cinza-claro: #f0f0f0;
+    --cinza-medio: #888;
+    --branco: #ffffff;
+    --gradiente-dourado: linear-gradient(135deg, #c897df 0%, #9166e0 50%, #810bb8 100%);
+    --sombra: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --transicao: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--preto-principal);
+    color: var(--cinza-claro);
+    font-family: 'Segoe UI', 'Roboto', 'Open Sans', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 20%);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ===== ANIMAÇÕES DINÂMICAS ===== */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 15px rgba(149, 55, 212, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(150, 115, 207, 0.6); }
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, transparent 48%, rgba(212, 175, 55, 0.03) 49%, rgba(212, 175, 55, 0.03) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(212, 175, 55, 0.03) 49%, rgba(212, 175, 55, 0.03) 51%, transparent 52%);
+    background-size: 80px 80px;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* ===== CABEÇALHOS ===== */
+h1 {
+    text-align: center;
+    color: var(--branco);
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    position: relative;
+    animation: slideIn 0.8s ease-out;
+    letter-spacing: 1px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 4px;
+    background: var(--gradiente-dourado);
+    border-radius: 2px;
+    animation: shimmer 3s infinite linear;
+    background-size: 200% auto;
+}
+
+/* ===== FORMULÁRIOS ===== */
+form {
+    background-color: var(--preto-secundario);
+    max-width: 700px;
+    margin: 0 auto 40px;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+    border: 1px solid var(--preto-terciario);
+    animation: slideIn 0.6s ease-out;
+    transition: var(--transicao);
+    position: relative;
+    overflow: hidden;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradiente-dourado);
+    animation: shimmer 2s infinite linear;
+    background-size: 200% auto;
+}
+
+form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+fieldset {
+    border: 1px solid var(--preto-terciario);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: rgba(26, 26, 26, 0.7);
+    transition: var(--transicao);
+}
+
+fieldset:hover {
+    border-color: var(--dourado);
+}
+
+/* ===== LABELS ===== */
+label {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--cinza-claro);
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+/* ===== INPUTS, SELECTS E TEXTAREAS ===== */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 1.5rem;
+    background-color: var(--preto-terciario);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    color: var(--branco);
+    font-size: 1rem;
+    transition: var(--transicao);
+    outline: none;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--dourado);
+    background-color: rgba(42, 42, 42, 0.8);
+    transform: scale(1.01);
+    animation: pulse-glow 2s infinite;
+}
+
+input::placeholder {
+    color: var(--cinza-medio);
+}
+
+/* ===== SELECT ESTILIZADO ===== */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23D4AF37' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 16px;
+    padding-right: 45px;
+    cursor: pointer;
+}
+
+/* ===== BOTÕES ===== */
+input[type="submit"] {
+    background: var(--gradiente-dourado);
+    color: var(--preto-principal);
+    border: none;
+    padding: 16px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transicao);
+    display: block;
+    margin: 30px auto 0;
+    min-width: 200px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+input[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+}
+
+input[type="submit"]:hover::before {
+    left: 100%;
+}
+
+input[type="submit"]:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* ===== MENSAGENS DE FEEDBACK ===== */
+.mensagem {
+    padding: 1.2rem;
+    margin: 1.5rem auto;
+    max-width: 700px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 500;
+    animation: slideIn 0.5s ease-out;
+    box-shadow: var(--sombra);
+}
+
+.erro {
+    background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+    color: white;
+    border-left: 5px solid #ff0000;
+}
+
+.sucesso {
+    background: linear-gradient(135deg, #00C851 0%, #007E33 100%);
+    color: white;
+    border-left: 5px solid #00ff00;
+}
+
+/* ===== BRILHOS DECORATIVOS ===== */
+.brilho {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    z-index: -1;
+    animation: float 20s infinite ease-in-out;
+}
+
+.brilho:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.brilho:nth-child(2) {
+    top: 60%;
+    right: 5%;
+    animation-delay: -5s;
+    width: 200px;
+    height: 200px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    form {
+        padding: 1.8rem;
+        margin: 0 auto 30px;
+    }
+    
+    input[type="submit"] {
+        width: 100%;
+        padding: 14px 20px;
+    }
+    
+    .brilho {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    form {
+        padding: 1.5rem;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="date"],
+    select {
+        padding: 12px 15px;
+    }
+    
+    fieldset {
+        padding: 1rem;
+    }
+}
+
+/* ===== ANIMAÇÃO DE ENTRADA ===== */
+form, h1, .mensagem {
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+}
+
+/* ===== ESTILO PARA OPÇÕES DO SELECT ===== */
+option {
+    background-color: var(--preto-secundario);
+    color: var(--cinza-claro);
+    padding: 10px;
+}
+
+option:hover {
+    background-color: var(--dourado) !important;
+    color: var(--preto-principal) !important;
+}
+
+/* ===== ESTILO PARA NÚMEROS ===== */
+input[type="number"]::-webkit-inner-spin-button {
+    opacity: 0.6;
+}
+
+input[type="number"]:hover::-webkit-inner-spin-button {
+    opacity: 1;
+}

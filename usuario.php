@@ -5,9 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuariot</title>
+    <link rel="stylesheet" href="./_css/style.css">
+    <link rel="stylesheet" href="./_css/nav.css">
 </head>
 
 <body>
+   <nav class="navbar">
+        <div class="navbar-container">
+            <a href="menu.html" class="navbar-logo">Biblioteca</a>
+            <button class="navbar-toggle" id="navbarToggle">
+                ☰
+            </button>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li class="navbar-item">
+                    <a href="usuario.php" class="navbar-link active">Usuários</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="obra.php" class="navbar-link ">Obras</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="emprestimo.php" class="navbar-link ">Empréstimos</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="devolucao.php" class="navbar-link ">Devoluções</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="vereficacao.php" class="navbar-link ">Relatórios</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <h1>Cadastro de Usuário</h1>
     <form method="post">
 

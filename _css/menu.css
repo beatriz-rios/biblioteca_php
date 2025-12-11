@@ -1,0 +1,246 @@
+  :root {
+            --premium-black: #1a1a1a;
+            --premium-dark-gray: #2c2c2c;
+            --premium-gold: #c266f7; 
+            --premium-silver: #c0c0c0;
+            --premium-white: #ffffff;
+            --premium-gradient: linear-gradient(135deg, #c897df 0%, #9166e0 50%, #810bb8 100%);
+            --shadow-subtle: 0 4px 10px rgba(0, 0, 0, 0.4);
+            --shadow-heavy: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--premium-silver);
+            line-height: 1.6;
+            /* Fundo Animado */
+            background-image: linear-gradient(135deg, var(--premium-dark-gray) 0%, var(--premium-black) 100%);
+            background-size: 200% 200%;
+            animation: subtle-shift 30s ease infinite alternate;
+            text-align: center; 
+        }
+
+        /* Animação para o fundo da página */
+        @keyframes subtle-shift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        header {
+            /* Fundo escuro do header */
+            background: var(--premium-dark-gray);
+            padding: 25px 0;
+            box-shadow: var(--shadow-heavy);
+            margin-bottom: 40px;
+      
+        }
+
+        header h1 {
+            color: var(--premium-gold);
+            margin: 5px 0;
+            font-size: 2.8em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+        
+        header h1:nth-of-type(2) { 
+            font-size: 1.4em;
+            color: var(--premium-silver);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        header h2 {
+            font-size: 1.1em;
+            color: var(--premium-silver);
+            margin-top: 15px;
+            font-weight: 400px;
+            border-bottom: 3px solid var(--premium-gold); /* Bold Strip na parte inferior */
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        /* Estilo para a Navegação (Área Principal de Links/Botões) */
+        nav {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 20px;
+            margin: 50px;
+            display: grid;
+            /* Layout responsivo com 3 colunas, mínimo de 250px */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+        }
+
+        nav ul li {
+            background: var(--premium-black);
+            border-radius: 16px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        nav ul li:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.9);
+            border-color: var(--premium-gold);
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--premium-silver);
+            padding: 50px 3 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-weight: 700;
+            font-size: 1.2em;
+            border-radius: 16px;
+            /* Fundo sutil para links */
+            background: linear-gradient(145deg, var(--premium-dark-gray) 0%, var(--premium-black) 100%); 
+            transition: color 0.3s, background 0.3s;
+        }
+
+        /* Efeito de gradiente ao passar o mouse */
+        nav ul li a:hover {
+            color: var(--premium-black);
+            background: var(--premium-gradient);
+            background-size: 200% 200%;
+            animation: gradient-flow 3s ease infinite;
+        }
+        
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+ /*
+ * Ajustes na Navegação para Empilhamento Vertical
+ */
+
+/* Estilo para o Contêiner Principal da Navbar */
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Muda o layout para empilhar itens verticalmente */
+    display: flex; 
+    flex-direction: column; 
+    /* Centraliza os itens (Logo e Menu) na horizontal */
+    align-items: center; 
+    /* Adiciona padding para acomodar o logo maior */
+    padding: 20px 20px 0;
+}
+
+/* Estilo para o Logo (navbar-logo) */
+.navbar-logo {
+    color: var(--premium-gold); /* Cor roxa principal */
+    text-decoration: none;
+    font-size: 2.2rem; /* Aumento da fonte para destaque */
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: all 0.4s; /* Usando transição padrão */
+    
+    /* Move o logo mais para baixo em relação ao topo da navbar */
+    margin-top: 40px; 
+    /* Adiciona margem abaixo do logo para separá-lo do menu */
+    margin-bottom: 30%; 
+}
+
+.navbar-logo:hover {
+    color: var(--premium-white);
+    text-shadow: 0 0 10px var(--premium-gold);
+    transform: scale(1.05);
+}
+
+/* Estilo para o Ícone do Logo (opcional, se estiver no HTML) */
+.navbar-logo-icon {
+    font-size: 2.8rem;
+    margin-right: 10px;
+}
+
+/*
+ * Ajustes na Lista de Links (nav ul)
+ * Mantém o layout de grid interno, mas garante que o bloco inteiro esteja centralizado.
+ */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    /* Mantém o grid para os links, mas remove a limitação de 1000px da nav */
+    width: 100%; 
+    max-width: 1000px; /* Limita a largura máxima da lista de links */
+    display: grid;
+    /* Layout responsivo com 3 colunas, mínimo de 250px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; 
+}
+/*
+ * Ajustes na Lista de Links (nav ul)
+ * Aumenta o espaçamento e a área dos itens.
+ */
+.navbar-menu {
+    list-style: none;
+    padding: 0;
+    /* Centraliza o bloco de links na página */
+    margin: 0 auto 20px auto; 
+    width: 100%; 
+    max-width: 1000px;
+    
+    /* Layout de grid para os links */
+    display: grid;
+    /* Reduz o número de colunas para 3 (mínimo 280px) para acomodar itens maiores */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 35px; /* Aumento do espaço entre os itens */
+    text-align: center;
+}
+
+.navbar-item {
+    /* O width é controlado pelo grid-template-columns. 
+       Para aumentar a área, focamos no padding do link (a). */
+    background: var(--premium-black);
+    border-radius: 16px;
+    box-shadow: var(--shadow-heavy);
+    transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+    border: 2px solid var(--premium-dark-gray); /* Borda mais visível */
+}
+
+.navbar-item:hover {
+    transform: translateY(-10px); /* Movimento vertical mais pronunciado */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
+    border-color: var(--premium-gold);
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: var(--premium-silver);
+    /* Aumenta o padding para dar mais altura (Height) e largura (Width) ao link */
+    padding: 35px 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-weight: 700;
+    font-size: 1.3em; /* Fonte ligeiramente maior */
+    border-radius: 16px;
+    background: linear-gradient(145deg, var(--premium-dark-gray) 0%, var(--premium-black) 100%); 
+    transition: color 0.3s, background 0.3s;
+}
+
+/* Efeito de gradiente ao passar o mouse */
+.navbar-link:hover {
+    color: var(--premium-black);
+    background: var(--premium-gradient);
+    background-size: 200% 200%;
+    animation: gradient-flow 3s ease infinite;
+}
+
+/* ... (Resto do seu CSS, como navbar-logo, toggle, media queries, etc. deve permanecer) ... */
