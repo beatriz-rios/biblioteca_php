@@ -113,10 +113,9 @@
             die();
         }
 
-        // ----------------------------------------------------
-        // --- INÍCIO DA LÓGICA DE VERIFICAÇÃO DE DISPONIBILIDADE ---
-        // ----------------------------------------------------
-
+        
+        //  INÍCIO DA LÓGICA DE VERIFICAÇÃO DE DISPONIBILIDADE 
+       
         // 1. Protege a variável para a query de verificação
         $obra_idobra_esc = mysqli_real_escape_string($conn, $obra_idobra);
 

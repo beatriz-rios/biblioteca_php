@@ -73,7 +73,7 @@
     </nav>
 
 
-    <h1>    Relatório Completo de Empréstimos (Ativos e Devolvidos)</h1>
+    <h1>Relatório Completo de Empréstimos (Ativos e Devolvidos)</h1>
 
     <?php
     // Inclui o arquivo de conexão
@@ -94,9 +94,8 @@
         die();
     }
 
-    // ----------------------------------------------------------------------
-    // --- SQL para buscar TODAS as transações (ativas e devolvidas) ---
-    // ----------------------------------------------------------------------
+    //  SQL para buscar TODAS as transações (ativas e devolvidas) 
+    
     $sqlRelatorio = "
         SELECT 
             e.idemprestimo,
@@ -112,10 +111,12 @@
         JOIN obra o ON e.obra_idobra = o.idobra
         JOIN usuario u ON e.id_usuario = u.idusuario
         
-        -- ORDENA: Por obras ainda ativas primeiro (emprestado) e depois por data de empréstimo mais recente
+        -- ORDENA: 
+        -- 1. Por obras ainda ativas primeiro (emprestado).
+        -- 2. Por data de empréstimo do MAIS ANTIGO PARA O MAIS RECENTE (ASC).
         ORDER BY 
             CASE WHEN e.emprestado_devolvido = 'emprestado' THEN 0 ELSE 1 END,
-            e.data_emprestimo DESC /* Mostra as transações mais recentes primeiro */
+            e.data_emprestimo ASC /* ALTERADO: Mostra as transações mais antigas primeiro */
     ";
 
     $resRelatorio = mysqli_query($conn, $sqlRelatorio);
@@ -146,17 +147,17 @@
             
             if ($status_db == 'devolvido') {
                 // Se o status no DB for 'devolvido', exibe como devolvido
-                $status_display = "DEVOLVIDO (Finalizado) ✔️";
+                $status_display = "DEVOLVIDO (Finalizado) ";
                 $class = "devolvido";
             } else {
                 // Se o status no DB for 'emprestado', verifica se está atrasado ou no prazo
                 if ($data_prevista < $data_hoje) {
                     // Está emprestado E a data prevista já passou
-                    $status_display = "ATRASADO 🔴";
+                    $status_display = "ATRASADO ";
                     $class = "atrasado";
                 } else {
                     // Está emprestado E ainda está dentro do prazo
-                    $status_display = "No Prazo (Ativo) ✅";
+                    $status_display = "No Prazo (Ativo) ";
                     $class = "ok";
                 }
             }

@@ -125,9 +125,9 @@
         ";
 
         if (mysqli_query($conn, $sqlUpdateDevolucao)) {
-            echo "<div class='mensagem sucesso'>✅ Devolução registrada e Transação ID $id_emprestimo_a_atualizar atualizada com sucesso!</div>";
+            echo "<div class='mensagem sucesso'> Devolução registrada e Transação ID $id_emprestimo_a_atualizar atualizada com sucesso!</div>";
         } else {
-            echo "<div class='mensagem erro'>❌ Erro ao registrar devolução: " . mysqli_error($conn) . "</div>";
+            echo "<div class='mensagem erro'> Erro ao registrar devolução: " . mysqli_error($conn) . "</div>";
         }
         
         mysqli_close($conn);
