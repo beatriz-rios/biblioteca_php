@@ -101,9 +101,9 @@
             '$email')";
 
         if (mysqli_query($conn, $sql)) {
-            echo "<br>Comando executado com sucesso";
+            echo "<div class='mensagem sucesso'>Usuário cadastrado com sucesso</div>";
         } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "<div class='mensagem erro'> " . $sql . "<br>" . mysqli_error($conn) . "</div>";
         }
 
 

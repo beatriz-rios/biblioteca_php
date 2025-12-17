@@ -116,7 +116,7 @@
         
         //  INÍCIO DA LÓGICA DE VERIFICAÇÃO DE DISPONIBILIDADE 
        
-        // 1. Protege a variável para a query de verificação
+        //Protege a variável para a query de verificação
         $obra_idobra_esc = mysqli_real_escape_string($conn, $obra_idobra);
 
         // SQL para buscar o status do último empréstimo da obra
@@ -132,7 +132,7 @@
         if ($res_check) {
             if (mysqli_num_rows($res_check) > 0) {
                 $last_loan = mysqli_fetch_assoc($res_check);
-                // 2. Se o último status não for 'devolvido', a obra não está disponível.
+                //  Se o último status não for 'devolvido', a obra não está disponível.
                 if (strtolower($last_loan['emprestado_devolvido']) != 'devolvido') {
                     $is_available = false;
                 }
@@ -145,11 +145,11 @@
         }
 
         if (!$is_available) {
-            // 3. Obra indisponível: Exibe o prompt e a mensagem de erro
+            // Obra indisponível: Exibe o prompt e a mensagem de erro
             echo "<script>alert('A obra não pode ser emprestada! O status atual não é \"devolvido\".');</script>";
             echo "<div class='mensagem erro'>Empréstimo não permitido: A obra já está emprestada ou o último empréstimo não foi devolvido.</div>";
         } else {
-            // 4. Obra disponível: Procede com a inserção do empréstimo
+            //  Obra disponível: Procede com a inserção do empréstimo
 
             // Protege as variáveis para o INSERT (boa prática de segurança)
             $id_usuario_esc = mysqli_real_escape_string($conn, $id_usuario);
@@ -174,9 +174,9 @@
                 '$emprestado_devolvido_esc')";
 
             if (mysqli_query($conn, $sql)) {
-                echo "<div class='mensagem sucesso'>✅ Devolução registrada com sucesso! A obra agora está disponível.'.";
+                echo "<div class='mensagem sucesso'> Empréstimo realizado com sucesso!</div>";
             } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                echo "<div class='mensagem erro'> " . $sql . "<br>" . mysqli_error($conn). "</div>";
             }
         }
 

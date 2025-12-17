@@ -49,6 +49,7 @@
                 <option value="4">H. P. Lovecraft</option>
                 <option value="5">Stephen King</option>
                 <option value="6">Paulo Coelho</option>
+                <option value="7">Monteiro Lobato</option>
             </select>
             <br>
             <label>Nome da editora</label>
@@ -124,9 +125,9 @@
         '$ano')";
 
         if (mysqli_query($conn, $sql)) {
-            echo "<br>Comando executado com sucesso";
+            echo "<div class='mensagem sucesso'>Obra cadastrada com sucesso.</div>";
         } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "<div class='mensagem erro'> " . $sql . "<br>" . mysqli_error($conn) . "</div>";
         }
 
 

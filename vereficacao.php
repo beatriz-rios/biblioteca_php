@@ -124,12 +124,12 @@
     if (!$resRelatorio) {
         echo "<div class='mensagem erro'>Erro ao executar a consulta do relatório: " . mysqli_error($conn) . "</div>";
     } elseif (mysqli_num_rows($resRelatorio) == 0) {
-        echo "<div class='mensagem sucesso'>🔎 O banco de dados não contém registros de empréstimo.</div>";
+        echo "<div class='mensagem sucesso'>O banco de dados não contém registros de empréstimo.</div>";
     } else {
         // Inicia a tabela para exibir os resultados
         echo "<table>";
         echo "<tr>";
-        echo "<th>ID Transação</th>";
+        echo "<th>ID</th>";
         echo "<th>Obra</th>";
         echo "<th>Usuário</th>";
         echo "<th>Empréstimo (Data)</th>";
